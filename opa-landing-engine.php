@@ -3,7 +3,7 @@
  * Plugin Name: OPA Landing Engine
  * Plugin URI: https://opareklama.lt
  * Description: The core engine for high-performance, modular, and AI-optimized landing pages. Built for speed, SEO, and GEO.
- * Version: 1.0.9
+ * Version: 1.1.0
  * Author: OPA Reklama
  * Author URI: https://opareklama.lt
  * Text Domain: opa-engine
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'OPA_ENGINE_VERSION', '1.0.9' );
+define( 'OPA_ENGINE_VERSION', '1.1.0' );
 define( 'OPA_ENGINE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'OPA_ENGINE_URL', plugin_dir_url( __FILE__ ) );
 

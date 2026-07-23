@@ -72,12 +72,9 @@ class Renderer {
 							];
 							
 							foreach ( $components as $comp_id => $link ) {
-								$class = $registry->get( $comp_id );
-								if ( $class ) {
-									$instance = new $class();
-									if ( $instance->is_enabled() ) {
-										echo '<li><a href="' . esc_attr( $link['id'] ) . '">' . esc_html( $link['label'] ) . '</a></li>';
-									}
+								$instance = $registry->get( $comp_id );
+								if ( $instance && $instance->is_enabled() ) {
+									echo '<li><a href="' . esc_attr( $link['id'] ) . '">' . esc_html( $link['label'] ) . '</a></li>';
 								}
 							}
 							?>
