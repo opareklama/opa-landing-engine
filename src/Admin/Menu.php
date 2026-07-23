@@ -43,12 +43,9 @@ class Menu {
 	}
 
 	public function render_dashboard() {
-		?>
-		<div class="wrap">
-			<h1><?php esc_html_e( 'NT30 Dashboard', 'opa-engine' ); ?></h1>
-			<p><?php esc_html_e( 'Welcome to the NT30 Landing Page engine. Manage your globally optimized, modular landing page from here.', 'opa-engine' ); ?></p>
-		</div>
-		<?php
+		require_once __DIR__ . '/Dashboard/DashboardManager.php';
+		$dashboard = new \OPA\LandingEngine\Admin\Dashboard\DashboardManager();
+		$dashboard->render();
 	}
 
 	public function render_global_settings() {
