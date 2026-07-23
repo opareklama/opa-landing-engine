@@ -1,0 +1,193 @@
+/* OPA Command Center Dashboard CSS */
+.opa-dash-wrap {
+	margin: 20px 20px 0 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.opa-dash-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+	background: #fff;
+	padding: 24px;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+	border: 1px solid #e2e8f0;
+}
+
+.opa-dash-header h1 {
+	margin: 0 0 8px 0;
+	font-size: 24px;
+	font-weight: 600;
+	color: #1e293b;
+}
+
+.opa-dash-header p {
+	margin: 0;
+	color: #64748b;
+	font-size: 14px;
+}
+
+.opa-dash-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 24px;
+}
+
+/* Dashboard Card */
+.opa-dash-card {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+	border: 1px solid #e2e8f0;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.opa-dash-card__header {
+	padding: 16px 20px;
+	border-bottom: 1px solid #e2e8f0;
+	background: #f8fafc;
+}
+
+.opa-dash-card__title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.opa-dash-card__title h3 {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 600;
+	color: #334155;
+}
+
+.opa-dash-card__title .dashicons {
+	color: #94a3b8;
+}
+
+.opa-dash-card__content {
+	padding: 20px;
+	flex-grow: 1;
+}
+
+/* Lists */
+.opa-dash-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.opa-dash-list li {
+	margin: 0 0 12px 0;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #f1f5f9;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 13px;
+	color: #475569;
+}
+
+.opa-dash-list li:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+.opa-dash-list li strong {
+	color: #1e293b;
+	font-weight: 500;
+}
+
+.opa-dash-list--bullets li {
+	display: list-item;
+	margin-left: 20px;
+	list-style-type: disc;
+	padding-bottom: 4px;
+	border-bottom: none;
+}
+
+/* Badges & Status */
+.opa-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	border-radius: 12px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.opa-badge--green { background: #dcfce7; color: #166534; }
+.opa-badge--yellow { background: #fef9c3; color: #854d0e; }
+.opa-badge--red { background: #fee2e2; color: #991b1b; }
+.opa-badge--blue { background: #dbeafe; color: #1e40af; }
+.opa-badge--gray { background: #f1f5f9; color: #475569; }
+
+.opa-status-text {
+	font-weight: 600;
+}
+.opa-status-text--green { color: #10b981; }
+.opa-status-text--yellow { color: #f59e0b; }
+.opa-status-text--red { color: #ef4444; }
+
+/* Alerts */
+.opa-dash-alert {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 16px;
+	border-radius: 6px;
+	font-size: 13px;
+}
+
+.opa-dash-alert--blue {
+	background: #eff6ff;
+	color: #1d4ed8;
+	border: 1px solid #bfdbfe;
+}
+
+.opa-dash-alert--green {
+	background: #f0fdf4;
+	color: #15803d;
+	border: 1px solid #bbf7d0;
+}
+
+/* Logs */
+.opa-dash-log-item {
+	margin-bottom: 8px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #f1f5f9;
+	font-size: 12px;
+}
+.opa-dash-log-item:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+.opa-log-time {
+	color: #94a3b8;
+	margin-right: 8px;
+	font-family: monospace;
+}
+.opa-log-msg {
+	margin-left: 8px;
+	color: #334155;
+}
+
+/* Component Status Specific */
+.opa-dash-list--components .opa-comp-name {
+	font-weight: 500;
+	color: #1e293b;
+}
+.opa-dash-list--components .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+	margin-right: 4px;
+}
