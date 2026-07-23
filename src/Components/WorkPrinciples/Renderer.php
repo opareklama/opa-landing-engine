@@ -16,7 +16,7 @@ class Renderer {
 		$title    = $options['opa_work_title'] ?? $defaults['opa_work_title'];
 		$desc     = $options['opa_work_desc'] ?? $defaults['opa_work_desc'];
 		$image    = $options['opa_work_image'] ?? $defaults['opa_work_image'];
-		$features = $options['opa_work_principles'] ?? $defaults['opa_work_principles'];
+		$features = $options['opa_work_features'] ?? $defaults['opa_work_features'];
 		$btn_lbl  = $options['opa_work_btn_label'] ?? $defaults['opa_work_btn_label'];
 		$btn_url  = $options['opa_work_btn_url'] ?? $defaults['opa_work_btn_url'];
 

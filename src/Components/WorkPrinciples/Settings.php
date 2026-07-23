@@ -51,12 +51,12 @@ class Settings {
 		);
 
 		add_settings_field(
-			'opa_work_principles',
-			__( 'Principles (4 Items)', 'opa-engine' ),
+			'opa_work_features',
+			__( 'Features (7 Items)', 'opa-engine' ),
 			[ self::class, 'render_principles' ],
 			$page,
 			$section,
-			[ 'id' => 'opa_work_principles', 'default' => $defaults['opa_work_principles'] ]
+			[ 'id' => 'opa_work_features', 'default' => $defaults['opa_work_features'] ]
 		);
 
 		add_settings_field(
@@ -149,4 +149,6 @@ class Settings {
 				echo '</div>';
 			}
 		}
+		echo '</div>';
+	}
 }
