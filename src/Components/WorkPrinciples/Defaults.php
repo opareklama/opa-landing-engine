@@ -2,16 +2,14 @@
 namespace OPA\LandingEngine\Components\WorkPrinciples;
 
 class Defaults {
-	public static function get() {
+	public static function get_defaults() {
 		return [
 			'opa_work_enable'      => '1',
 			'opa_work_badge'       => 'Kas įskaičiuota',
 			'opa_work_title'       => 'Ką gaunate dirbdami su NT30?',
 			'opa_work_desc'        => 'Dirbdami su NT30 gaunate ne tik profesionalų tarpininkavimą, bet ir visą paslaugų paketą, kuris padeda užtikrinti sklandų ir saugų jūsų buto pardavimo procesą.',
 			'opa_work_image'       => '',
-			'opa_work_btn_label'   => '',
-			'opa_work_btn_url'     => '',
-			'opa_work_principles'  => [
+			'opa_work_features'  => [
 				[
 					'icon'        => 'users',
 					'title'       => '3 pirkėjų pasiūlymai',
@@ -30,7 +28,7 @@ class Defaults {
 				[
 					'icon'        => 'landmark',
 					'title'       => 'Finansavimo pagalba',
-					'description' => 'Brokeris padeda Jūsų pirkėjams sutvarkyti finansavimą banke.',
+					'description' => 'Mūsų brokeris padeda Jūsų pirkėjams sutvarkyti finansavimą banke.',
 				],
 				[
 					'icon'        => 'megaphone',
@@ -44,10 +42,12 @@ class Defaults {
 				],
 				[
 					'icon'        => 'clipboard-check',
-					'title'       => 'Proceso valdymas',
-					'description' => 'Viso proceso koordinavimas iki pat galutinio atsiskaitymo.',
+					'title'       => 'Turto defektavimas',
+					'description' => 'Padedame nustatyti ir aprašyti turto defektus, kad pirkėjas negalėtų ginčyti po sandorio.',
 				],
 			],
+			'opa_work_btn_label'   => '',
+			'opa_work_btn_url'     => '',
 		];
 	}
 }

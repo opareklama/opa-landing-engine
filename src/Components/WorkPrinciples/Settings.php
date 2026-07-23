@@ -122,30 +122,31 @@ class Settings {
 		$id      = $args['id'];
 		$default = isset( $args['default'] ) ? $args['default'] : [];
 		$items   = isset( $options[ $id ] ) && is_array( $options[ $id ] ) ? $options[ $id ] : $default;
+		$defaults = $args['default'];
 		
-		if ( empty( $items ) || count($items) < 4 ) {
-			$items = $default;
-		}
+		$features = $options['opa_work_features'] ?? $defaults;
 
-		?>
-		<div class="opa-repeater" id="opa-work-principles-repeater" style="max-width: 800px;">
-			<div class="opa-repeater-container">
-				<?php foreach ( $items as $index => $item ) : ?>
-					<div class="opa-repeater-row" style="display:flex; flex-wrap: wrap; gap:10px; margin-bottom:15px; background:#fff; padding:16px; border:1px solid #ccd0d4; border-radius:4px; box-shadow: 0 1px 1px rgba(0,0,0,.04);">
-						<div style="width:100%; display:flex; flex-direction:column; gap:10px;">
-							<label style="font-weight:600;">Icon (handshake, message-circle, target, shield-check)</label>
-							<input type="text" name="opa_home_settings[<?php echo esc_attr($id); ?>][<?php echo $index; ?>][icon]" value="<?php echo esc_attr( $item['icon'] ?? '' ); ?>" class="regular-text">
-							
-							<label style="font-weight:600;">Title</label>
-							<input type="text" name="opa_home_settings[<?php echo esc_attr($id); ?>][<?php echo $index; ?>][title]" value="<?php echo esc_attr( $item['title'] ?? '' ); ?>" class="large-text">
-							
-							<label style="font-weight:600;">Description</label>
-							<textarea name="opa_home_settings[<?php echo esc_attr($id); ?>][<?php echo $index; ?>][description]" rows="3" class="large-text"><?php echo esc_textarea( $item['description'] ?? '' ); ?></textarea>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-		<?php
-	}
+		echo '<div id="opa-work-principles-wrapper">';
+		
+		if ( ! empty( $features ) ) {
+			foreach ( $features as $index => $item ) {
+				$icon  = esc_attr( $item['icon'] ?? '' );
+				$title = esc_attr( $item['title'] ?? '' );
+				$desc  = esc_textarea( $item['description'] ?? '' );
+				
+				echo '<div class="opa-repeater-item" style="border:1px solid #ddd; padding: 15px; margin-bottom: 10px; background:#f9f9f9;">';
+				echo '<h4>Feature ' . ( $index + 1 ) . '</h4>';
+				
+				echo '<p><label>Icon (users, file-check, shield-check, landmark, megaphone, file-text, clipboard-check)</label><br/>';
+				echo '<input type="text" name="opa_home_settings[opa_work_features][' . $index . '][icon]" value="' . $icon . '" class="regular-text"></p>';
+				
+				echo '<p><label>Title</label><br/>';
+				echo '<input type="text" name="opa_home_settings[opa_work_features][' . $index . '][title]" value="' . $title . '" class="regular-text"></p>';
+				
+				echo '<p><label>Description</label><br/>';
+				echo '<textarea name="opa_home_settings[opa_work_features][' . $index . '][description]" rows="3" class="large-text">' . $desc . '</textarea></p>';
+				
+				echo '</div>';
+			}
+		}
 }

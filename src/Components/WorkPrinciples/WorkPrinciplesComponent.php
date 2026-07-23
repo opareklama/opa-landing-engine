@@ -16,7 +16,7 @@ class WorkPrinciplesComponent extends AbstractComponent {
 
 	public function get_defaults() {
 		require_once __DIR__ . '/Defaults.php';
-		return Defaults::get();
+		return Defaults::get_defaults();
 	}
 
 	public function register_settings( $page, $section ) {
