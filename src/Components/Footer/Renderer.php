@@ -60,12 +60,27 @@ class Renderer {
 					<div class="opa-footer__col opa-footer__col--links">
 						<h4 class="opa-footer__heading">Nuorodos</h4>
 						<ul class="opa-footer__list">
-							<li><a href="#pradzia">Pradžia</a></li>
-							<li><a href="#why-nt30">Kodėl NT30</a></li>
-							<li><a href="#process">Procesas</a></li>
-							<li><a href="#results">Rezultatai</a></li>
-							<li><a href="#faq">DUK</a></li>
-							<li><a href="#contact">Kontaktai</a></li>
+							<?php
+							$registry = \OPA\LandingEngine\Registry\ComponentRegistry::get_instance();
+							$components = [
+								'hero'     => [ 'id' => '#pradzia', 'label' => 'Pradžia' ],
+								'why-nt30' => [ 'id' => '#why-nt30', 'label' => 'Kodėl NT30' ],
+								'process'  => [ 'id' => '#process', 'label' => 'Procesas' ],
+								'results'  => [ 'id' => '#results', 'label' => 'Rezultatai' ],
+								'faq'      => [ 'id' => '#faq', 'label' => 'DUK' ],
+								'contact'  => [ 'id' => '#contact', 'label' => 'Kontaktai' ],
+							];
+							
+							foreach ( $components as $comp_id => $link ) {
+								$class = $registry->get( $comp_id );
+								if ( $class ) {
+									$instance = new $class();
+									if ( $instance->is_enabled() ) {
+										echo '<li><a href="' . esc_attr( $link['id'] ) . '">' . esc_html( $link['label'] ) . '</a></li>';
+									}
+								}
+							}
+							?>
 						</ul>
 					</div>
 
