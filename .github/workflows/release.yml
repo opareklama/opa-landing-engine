@@ -1,0 +1,64 @@
+name: Create Release on Version Bump
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'opa-landing-engine.php'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Get Current Version
+        id: current_version
+        run: |
+          VERSION=$(grep -i "Version:" opa-landing-engine.php | awk -F':' '{print $2}' | tr -d ' ' | tr -d '\r')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Get Previous Version
+        id: prev_version
+        run: |
+          git checkout HEAD^1
+          PREV_VERSION=$(grep -i "Version:" opa-landing-engine.php | awk -F':' '{print $2}' | tr -d ' ' | tr -d '\r')
+          echo "PREV_VERSION=$PREV_VERSION" >> $GITHUB_ENV
+          git checkout -
+
+      - name: Check if Version Bumped
+        id: check_bump
+        run: |
+          if [ "${{ env.VERSION }}" != "${{ env.PREV_VERSION }}" ]; then
+            echo "Version bumped from ${{ env.PREV_VERSION }} to ${{ env.VERSION }}"
+            echo "bumped=true" >> $GITHUB_OUTPUT
+          else
+            echo "Version unchanged."
+            echo "bumped=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Production ZIP
+        if: steps.check_bump.outputs.bumped == 'true'
+        run: |
+          # Use git archive to respect .gitattributes export-ignore
+          # This creates a clean ZIP without development files
+          git archive -o opa-landing-engine.zip HEAD
+
+      - name: Create GitHub Release
+        if: steps.check_bump.outputs.bumped == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: v${{ env.VERSION }}
+          body: "Automated release v${{ env.VERSION }} created by GitHub Actions."
+          files: opa-landing-engine.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,84 @@
+.opa-admin-wrap {
+	margin-top: 20px;
+}
+.opa-admin-layout {
+	margin-top: 20px;
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+.opa-admin-tabs {
+	margin-bottom: 0;
+	padding-top: 10px;
+	background: #f1f1f1;
+	border-bottom: 1px solid #ccc;
+}
+.opa-admin-tabs .nav-tab {
+	margin-left: 10px;
+	transition: all 0.2s ease;
+}
+.opa-admin-tabs .nav-tab-active {
+	border-bottom-color: #fff;
+	background: #fff;
+}
+.opa-admin-content {
+	padding: 30px;
+}
+.opa-tab-panel {
+	display: none;
+}
+.opa-tab-panel.is-active {
+	display: block;
+}
+
+/* Drag & Drop Builder */
+.opa-sortable-list {
+	margin: 20px 0;
+	padding: 0;
+	list-style: none;
+	max-width: 600px;
+}
+.opa-sortable-item {
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	padding: 15px;
+	margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	cursor: grab;
+	border-radius: 4px;
+	transition: box-shadow 0.2s ease;
+}
+.opa-sortable-item:active {
+	cursor: grabbing;
+}
+.opa-sortable-item.is-dragging {
+	opacity: 0.5;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.opa-sortable-handle {
+	color: #8c8f94;
+	font-size: 20px;
+	cursor: grab;
+}
+.opa-sortable-name {
+	flex-grow: 1;
+	font-weight: 600;
+	font-size: 14px;
+}
+.badge {
+	padding: 4px 8px;
+	border-radius: 12px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.badge-success {
+	background: #edfaef;
+	color: #00a32a;
+}
+.badge-disabled {
+	background: #f6f7f7;
+	color: #8c8f94;
+}

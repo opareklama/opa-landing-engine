@@ -1,0 +1,19 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# IDE & OS Files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Build Artifacts
+*.zip
+/build/
+/dist/
+
+# Logs
+npm-debug.log
+yarn-error.log
+error_log

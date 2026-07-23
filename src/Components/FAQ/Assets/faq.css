@@ -1,0 +1,182 @@
+/* OPA FAQ Engine CSS */
+.opa-faq {
+	background-color: #FFFFFF;
+	padding: 100px 4%;
+	color: #0F172A;
+}
+
+.opa-faq__container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.opa-faq__header {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.opa-faq__badge {
+	display: inline-block;
+	background: rgba(201, 161, 74, 0.1);
+	color: #C9A14A;
+	padding: 6px 16px;
+	border-radius: 50px;
+	font-family: var(--opa-font-heading, 'Manrope', sans-serif);
+	font-weight: 700;
+	font-size: 13px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 24px;
+}
+
+.opa-faq__title {
+	font-family: var(--opa-font-heading, 'Manrope', serif);
+	font-size: clamp(32px, 4vw, 48px);
+	font-weight: 700;
+	color: #0F172A;
+	margin: 0 0 20px 0;
+	line-height: 1.15;
+	letter-spacing: -1px;
+}
+
+.opa-faq__desc {
+	font-family: var(--opa-font-body, 'Inter', sans-serif);
+	font-size: 18px;
+	color: #64748B;
+	margin: 0 auto;
+	line-height: 1.6;
+	max-width: 600px;
+}
+
+/* Accordion */
+.opa-faq__accordion {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.opa-faq__item {
+	background: #FFFFFF;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 16px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+.opa-faq__item:hover {
+	border-color: rgba(201, 161, 74, 0.4);
+	box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.03);
+}
+
+.opa-faq__item.is-active {
+	border-color: #C9A14A;
+	box-shadow: 0 20px 40px -10px rgba(201, 161, 74, 0.15);
+}
+
+.opa-faq__trigger {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 24px 30px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	outline: none;
+	gap: 20px;
+	box-sizing: border-box;
+}
+
+.opa-faq__question {
+	flex: 1;
+	padding-right: 15px;
+	font-family: var(--opa-font-heading, 'Manrope', serif);
+	font-size: 18px;
+	font-weight: 700;
+	color: #0F172A;
+	line-height: 1.4;
+	transition: color 0.3s ease;
+	word-wrap: break-word;
+}
+
+.opa-faq__item.is-active .opa-faq__question {
+	color: #C9A14A;
+}
+
+.opa-faq__icon {
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: #F8FAFC;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #64748B;
+	transition: all 0.3s ease;
+}
+
+.opa-faq__icon svg {
+	transition: transform 0.3s ease;
+}
+
+.opa-faq__item.is-active .opa-faq__icon {
+	background: #C9A14A;
+	color: #FFFFFF;
+}
+
+.opa-faq__item.is-active .opa-faq__icon svg {
+	transform: rotate(180deg);
+}
+
+.opa-faq__content-wrapper {
+	transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	will-change: height;
+}
+
+.opa-faq__content {
+	padding: 0 30px 30px 30px;
+}
+
+.opa-faq__content p {
+	font-family: var(--opa-font-body, 'Inter', sans-serif);
+	font-size: 16px;
+	color: #475569;
+	line-height: 1.7;
+	margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 576px) {
+	.opa-faq {
+		padding: 60px 24px;
+	}
+	
+	.opa-faq__trigger {
+		padding: 16px;
+		gap: 12px;
+	}
+	
+	.opa-faq__question {
+		font-size: 15px;
+	}
+	
+	.opa-faq__icon {
+		width: 24px;
+		height: 24px;
+	}
+	
+	.opa-faq__icon svg {
+		width: 10px;
+		height: 10px;
+	}
+	
+	.opa-faq__content {
+		padding: 0 16px 16px 16px;
+	}
+	
+	.opa-faq__content p {
+		font-size: 14px;
+	}
+}
